@@ -37,6 +37,7 @@ class SpotlightView extends FrameLayout {
     setWillNotDraw(false);
     setLayerType(View.LAYER_TYPE_HARDWARE, null);
     spotPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+    spotPaint.setAntiAlias(true);
     setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
         ViewGroup.LayoutParams.MATCH_PARENT));
     setOnClickListener(new OnClickListener() {
