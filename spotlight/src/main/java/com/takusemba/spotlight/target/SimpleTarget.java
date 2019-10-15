@@ -71,8 +71,21 @@ public class SimpleTarget extends Target {
         descriptionView.setText(description);
       }
       if (overlayPoint != null) {
-        layout.setX(overlayPoint.x);
         layout.setY(overlayPoint.y);
+
+        int margin = (int) overlayPoint.x;
+
+        /*
+        * Center & wrap text
+        */
+        FrameLayout.LayoutParams marginParams = new FrameLayout.LayoutParams(
+            layout.getLayoutParams());
+        marginParams.setMargins(
+            marginParams.leftMargin + margin,
+            marginParams.topMargin,
+            marginParams.rightMargin + margin,
+            marginParams.bottomMargin);
+        layout.setLayoutParams(marginParams);
       }
       return new SimpleTarget(shape, point, overlay, duration, animation, listener);
     }
